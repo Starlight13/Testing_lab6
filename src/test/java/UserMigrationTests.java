@@ -9,15 +9,15 @@ public class UserMigrationTests {
     @Test
     public void testNonMigratedUsersReturn() {
         try {
-            DataExporter.exportDataFromDb(PathToFiles.userResult,
-                    QueriesToDB.getSELECTQueryOrderById("users"),
-                    DataExporter.getTableColumnsNames(QueriesToDB.getSELECTQuery("users")));
+            dbWorker.getDBData(filePaths.userResult,
+                    QueriesToDB.selectAllUsersOrderById,
+                    dbWorker.getTableColumnsNames(QueriesToDB.selectAllUsers));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        CSVComparer csvComparer = new CSVComparer(PathToFiles.userExpected, PathToFiles.userResult, PathToFiles.userLogFile);
+        Comparer csvComparer = new Comparer(filePaths.userExpected, filePaths.userResult, filePaths.userLogFile);
         boolean equality = csvComparer.compareCSV();
         Assert.assertTrue(equality);
     }
@@ -25,18 +25,16 @@ public class UserMigrationTests {
     @Test
     public void testMigratedUsers() {
         try {
-            Migration.executeMigration(QueriesToDB.addColumnToUsersTable);
-            DataExporter.exportDataFromDb(PathToFiles.userResult,
-                    QueriesToDB.getSELECTQueryOrderById("users"),
-                    DataExporter.getTableColumnsNames(QueriesToDB.getSELECTQuery("users")));
-        } catch (IOException e) {
+            Migration.migrate(QueriesToDB.addColumnToUsersTable);
+            dbWorker.getDBData(filePaths.userResult,
+                    QueriesToDB.selectAllUsersOrderById,
+                    dbWorker.getTableColumnsNames(QueriesToDB.selectAllUsers));
+        } catch (IOException | SQLException e) {
             e.printStackTrace();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
         }
-        CSVComparer csvComparer = new CSVComparer(PathToFiles.userExpected, PathToFiles.userResult, PathToFiles.userLogFile);
+        Comparer csvComparer = new Comparer(filePaths.userExpected, filePaths.userResult, filePaths.userLogFile);
         boolean equality = csvComparer.compareCSV();
-        Migration.executeMigration(QueriesToDB.deleteColumnInUsersTable);
+        Migration.migrate(QueriesToDB.deleteColumnInUsersTable);
         Assert.assertTrue(equality);
     }
 }

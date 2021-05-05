@@ -6,7 +6,7 @@ import java.sql.Statement;
 
 public class Migration {
 
-    public static void executeMigration(String migration) {
+    public static void migrate(String migration) {
         Connection connection = BasicConnectionPool.getInstance().getConnection();
         try {
             Statement statement = connection.createStatement();

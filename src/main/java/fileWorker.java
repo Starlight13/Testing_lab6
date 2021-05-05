@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WorkWithFiles {
+public class fileWorker {
 
     public static List<String> readLines(String path){
         List<String> rows = new ArrayList<>();
@@ -12,8 +12,6 @@ public class WorkWithFiles {
             while ((str =bufferedReader.readLine())!=null){
                 rows.add(str);
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -21,7 +19,7 @@ public class WorkWithFiles {
     }
 
 
-    public static void writeLineIntoFile(String value , String path){
+    public static void writeToFile(String value , String path){
         try(BufferedWriter fileWriter = new BufferedWriter(new FileWriter(path,true))){
             fileWriter.write(value+'\n');
         } catch (IOException e) {

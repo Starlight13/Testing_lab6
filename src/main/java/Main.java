@@ -2,16 +2,16 @@ public class Main {
 
     public static void main(String[] args) throws Exception{
 
-        DataExporter.exportDataFromDb(PathToFiles.userExpected,
-                QueriesToDB.getSELECTQueryOrderById("users"),
-                DataExporter.getTableColumnsNames(QueriesToDB.getSELECTQuery("users")));
+        dbWorker.getDBData(filePaths.userExpected,
+                QueriesToDB.selectAllUsersOrderById,
+                dbWorker.getTableColumnsNames(QueriesToDB.selectAllUsers));
 
-        DataExporter.exportDataFromDb(PathToFiles.songExpected,
-                QueriesToDB.getSELECTQueryOrderById("songs"),
-                DataExporter.getTableColumnsNames(QueriesToDB.getSELECTQuery("songs")));
+        dbWorker.getDBData(filePaths.songExpected,
+                QueriesToDB.selectAllSongsOrderById,
+                dbWorker.getTableColumnsNames(QueriesToDB.selectAllSongs));
 
-        DataExporter.exportDataFromDb(PathToFiles.songExpectedWithGroupBy,
+        dbWorker.getDBData(filePaths.songExpectedWithGroupBy,
                 QueriesToDB.SELECTQuerySumDurationGroupBy1ForSongs,
-                DataExporter.getTableColumnsNames(QueriesToDB.selectSongsGenreIDAndDuration));
+                dbWorker.getTableColumnsNames(QueriesToDB.selectSongsGenreIDAndDuration));
     }
 }

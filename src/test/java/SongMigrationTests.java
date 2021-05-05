@@ -9,52 +9,46 @@ public class SongMigrationTests {
     @Test
     public void testMigratedSongs() {
         try {
-            Migration.executeMigration(QueriesToDB.addColumnToSongsTable);
-            DataExporter.exportDataFromDb(PathToFiles.songResult,
-                    QueriesToDB.getSELECTQueryOrderById("songs"),
-                    DataExporter.getTableColumnsNames(QueriesToDB.getSELECTQuery("songs")));
-        } catch (IOException e) {
+            Migration.migrate(QueriesToDB.addColumnToSongsTable);
+            dbWorker.getDBData(filePaths.songResult,
+                    QueriesToDB.selectAllSongsOrderById,
+                    dbWorker.getTableColumnsNames(QueriesToDB.selectAllSongs));
+        } catch (IOException | SQLException e) {
             e.printStackTrace();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
         }
-        CSVComparer csvComparer = new CSVComparer(PathToFiles.songExpected, PathToFiles.songResult, PathToFiles.songLogFile);
-        boolean equality = csvComparer.compareCSV();
-        Migration.executeMigration(QueriesToDB.deleteColumnInSongsTable);
-        Assert.assertTrue(equality);
+        Comparer comparer = new Comparer(filePaths.songExpected, filePaths.songResult, filePaths.songLogFile);
+        boolean isEqual = comparer.compareCSV();
+        Migration.migrate(QueriesToDB.deleteColumnInSongsTable);
+        Assert.assertTrue(isEqual);
     }
 
     @Test
     public void testNonMigratedSongs() {
         try {
-            DataExporter.exportDataFromDb(PathToFiles.songResult,
-                    QueriesToDB.getSELECTQueryOrderById("songs"),
-                    DataExporter.getTableColumnsNames(QueriesToDB.getSELECTQuery("songs")));
-        } catch (IOException e) {
+            dbWorker.getDBData(filePaths.songResult,
+                    QueriesToDB.selectAllSongsOrderById,
+                    dbWorker.getTableColumnsNames(QueriesToDB.selectAllSongs));
+        } catch (IOException | SQLException e) {
             e.printStackTrace();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
         }
-        CSVComparer csvComparer = new CSVComparer(PathToFiles.songExpected, PathToFiles.songResult, PathToFiles.songLogFile);
-        boolean equality = csvComparer.compareCSV();
-        Assert.assertTrue(equality);
+        Comparer comparer = new Comparer(filePaths.songExpected, filePaths.songResult, filePaths.songLogFile);
+        boolean isEqual = comparer.compareCSV();
+        Assert.assertTrue(isEqual);
     }
 
     @Test
     public void testMigratedSongsWithGroupBy() {
         try {
-            Migration.executeMigration(QueriesToDB.addColumnToSongsTable);
-            DataExporter.exportDataFromDb(PathToFiles.songResultWithGroupBy,
+            Migration.migrate(QueriesToDB.addColumnToSongsTable);
+            dbWorker.getDBData(filePaths.songResultWithGroupBy,
                     QueriesToDB.SELECTQuerySumDurationGroupBy2ForSongs,
-                    DataExporter.getTableColumnsNames(QueriesToDB.selectSongsGenreIDAndDurationAndAlbum));
-        } catch (IOException e) {
+                    dbWorker.getTableColumnsNames(QueriesToDB.selectSongsGenreIDAndDurationAndAlbum));
+        } catch (IOException | SQLException e) {
             e.printStackTrace();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
         }
-        CSVComparer csvComparer = new CSVComparer(PathToFiles.songExpectedWithGroupBy, PathToFiles.songResultWithGroupBy, PathToFiles.songLogFile);
-        boolean equality = csvComparer.compareCSV();
-        Migration.executeMigration(QueriesToDB.deleteColumnInSongsTable);
-        Assert.assertTrue(equality);
+        Comparer comparer = new Comparer(filePaths.songExpectedWithGroupBy, filePaths.songResultWithGroupBy, filePaths.songLogFile);
+        boolean isEqual = comparer.compareCSV();
+        Migration.migrate(QueriesToDB.deleteColumnInSongsTable);
+        Assert.assertTrue(isEqual);
     }
 }

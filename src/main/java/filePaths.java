@@ -1,4 +1,4 @@
-public class PathToFiles {
+public class filePaths {
     public final static String userExpected = "src/main/resources/user_expected.csv";
     public final static String songExpected = "src/main/resources/song_expected.csv";
     public final static String userResult = "src/main/resources/user_result.csv";

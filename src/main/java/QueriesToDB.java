@@ -18,9 +18,12 @@ public class QueriesToDB {
     public static final String SELECTQuerySumDurationGroupBy1ForSongs = "select genre_id, SUM(duration_sec) as duration_sec from songs GROUP BY genre_id";
     public static final String SELECTQuerySumDurationGroupBy2ForSongs = "select genre_id, album, SUM(duration_sec) as duration_sec from songs GROUP BY genre_id, album";
 
-    public static String getSELECTQueryOrderById (String tableName) {
-        return "select * from " + tableName + " order by id";
-    }
+    public static final String selectAllUsersOrderById = "select * from users order by id";
+    public static final String selectAllSongsOrderById = "select * from songs order by id";
+
+    public static final String selectAllUsers = "select * from users";
+    public static final String selectAllSongs = "select * from songs";
+
 
     public static String getSELECTQuery (String tableName) {
         return "select * from " + tableName;

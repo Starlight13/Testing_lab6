@@ -3,52 +3,52 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CSVComparer {
+public class Comparer {
 
-    private String expectedCsv;
-    private String actualCsv;
+    private String expectedCSV;
+    private String resultCSV;
     private String logFile;
 
-    public CSVComparer(String expectedCsv, String actualCsv, String logFile) {
-        this.expectedCsv = expectedCsv;
-        this.actualCsv = actualCsv;
+    public Comparer(String expectedCsv, String resultCSV, String logFile) {
+        this.expectedCSV = expectedCsv;
+        this.resultCSV = resultCSV;
         this.logFile = logFile;
     }
 
     public boolean compareCSV() {
-        WorkWithFiles.writeLineIntoFile('\n' +"==============================================", logFile);
-        WorkWithFiles.writeLineIntoFile("\nDate: " + new Date() + " \n", logFile);
-        List<String> exp = WorkWithFiles.readLines(expectedCsv);
-        List<String> act = WorkWithFiles.readLines(actualCsv);
+        fileWorker.writeToFile('\n' +"==============================================", logFile);
+        fileWorker.writeToFile("\nDate: " + new Date() + " \n", logFile);
+        List<String> exp = fileWorker.readLines(expectedCSV);
+        List<String> res = fileWorker.readLines(resultCSV);
         int unequalRows  = 0;
-        boolean isEquals;
+        boolean isEqual;
 
         for (int i = 0; i < exp.size(); i++) {
-            if (act.size() - 1 < i) {
+            if (res.size() - 1 < i) {
                 break;
             } else {
-                String result = diff(exp.get(i), act.get(i)).second;
+                String result = diff(exp.get(i), res.get(i)).second;
                 if (!result.isEmpty()) {
                     unequalRows++;
-                    WorkWithFiles.writeLineIntoFile("id : "+getId(exp.get(i))+ " . Difference in text : "+result + " . Expect : " +exp.get(i)+" . Actual : " + act.get(i), logFile);
+                    fileWorker.writeToFile("Difference in id "+getId(exp.get(i))+ ".\n \tExpected : " +exp.get(i)+". \n \tResult : " + res.get(i) + ".\n\tDifference: " + result, logFile);
                 }
             }
         }
         int expSize = exp.size();
-        exp.removeAll(act);
+        exp.removeAll(res);
         if(exp.size() == 0) {
-            WorkWithFiles.writeLineIntoFile("All rows are equal", logFile);
-            isEquals = true;
+            fileWorker.writeToFile("Result is equal to expected", logFile);
+            isEqual = true;
         }else {
-            WorkWithFiles.writeLineIntoFile("Not all rows are equal", logFile);
-            isEquals = false;
+            fileWorker.writeToFile("Some resulting rows were not as expected", logFile);
+            isEqual = false;
         }
 
-        WorkWithFiles.writeLineIntoFile("Total rows in expected csv : " + expSize, logFile);
-        WorkWithFiles.writeLineIntoFile("Total rows in actual csv : " + act.size(), logFile);
-        WorkWithFiles.writeLineIntoFile("Total unequal rows : " + unequalRows, logFile);
-        WorkWithFiles.writeLineIntoFile('\n' +"==============================================", logFile);
-        return isEquals;
+        fileWorker.writeToFile("Total rows in expected csv : " + expSize, logFile);
+        fileWorker.writeToFile("Total rows in resulting csv : " + res.size(), logFile);
+        fileWorker.writeToFile("Total unequal rows : " + unequalRows, logFile);
+        fileWorker.writeToFile('\n' +"==============================================", logFile);
+        return isEqual;
     }
 
     private String getId(String row) {

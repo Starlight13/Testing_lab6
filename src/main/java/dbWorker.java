@@ -7,9 +7,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataExporter {
+public class dbWorker {
 
-    public static void exportDataFromDb(String fileOut, String query, List<String> columns) throws IOException, SQLException {
+    public static void getDBData(String fileOut, String query, List<String> columns) throws IOException, SQLException {
         BufferedWriter fileWriter = new BufferedWriter(new FileWriter(fileOut));
         Connection connection = BasicConnectionPool.getInstance().getConnection();
         Statement statement = connection.createStatement();
