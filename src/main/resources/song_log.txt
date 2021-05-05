@@ -1,0 +1,45 @@
+
+==============================================
+
+Date: Thu May 06 01:21:17 EEST 2021 
+
+id : 3 . Difference in text : 215,Testing Album . Expect : 3,2664 . Actual : 2,1665,Testing Album
+id : 2 . Difference in text : 16,Testing Album . Expect : 2,1665 . Actual : 1,666,Testing Album
+id : 1 . Difference in text : 324,Testing Album . Expect : 1,666 . Actual : 3,2664,Testing Album
+Not all rows are equal
+Total rows in expected csv : 3
+Total rows in actual csv : 3
+Total unequal rows : 3
+
+==============================================
+
+==============================================
+
+Date: Thu May 06 01:22:17 EEST 2021 
+
+All rows are equal
+Total rows in expected csv : 9
+Total rows in actual csv : 9
+Total unequal rows : 0
+
+==============================================
+
+==============================================
+
+Date: Thu May 06 01:22:25 EEST 2021 
+
+id : 1 . Difference in text : ,Testing Album . Expect : 1,Test Song 1,Artist 1,111,1 . Actual : 1,Test Song 1,Artist 1,111,1,Testing Album
+id : 2 . Difference in text : ,Testing Album . Expect : 2,Test Song 2,Artist 2,222,1 . Actual : 2,Test Song 2,Artist 2,222,1,Testing Album
+id : 3 . Difference in text : ,Testing Album . Expect : 3,Test Song 3,Artist 3,333,1 . Actual : 3,Test Song 3,Artist 3,333,1,Testing Album
+id : 4 . Difference in text : ,Testing Album . Expect : 4,Test Song 4,Artist 4,444,2 . Actual : 4,Test Song 4,Artist 4,444,2,Testing Album
+id : 5 . Difference in text : ,Testing Album . Expect : 5,Test Song 5,Artist 5,555,2 . Actual : 5,Test Song 5,Artist 5,555,2,Testing Album
+id : 6 . Difference in text : ,Testing Album . Expect : 6,Test Song 6,Artist 6,666,2 . Actual : 6,Test Song 6,Artist 6,666,2,Testing Album
+id : 7 . Difference in text : ,Testing Album . Expect : 7,Test Song 7,Artist 7,777,3 . Actual : 7,Test Song 7,Artist 7,777,3,Testing Album
+id : 8 . Difference in text : ,Testing Album . Expect : 8,Test Song 8,Artist 8,888,3 . Actual : 8,Test Song 8,Artist 8,888,3,Testing Album
+id : 9 . Difference in text : ,Testing Album . Expect : 9,Test Song 9,Artist 9,999,3 . Actual : 9,Test Song 9,Artist 9,999,3,Testing Album
+Not all rows are equal
+Total rows in expected csv : 9
+Total rows in actual csv : 9
+Total unequal rows : 9
+
+==============================================

@@ -1,0 +1,51 @@
+
+==============================================
+
+Date: Thu May 06 01:16:40 EEST 2021 
+
+id : 1 . Difference in text : ,testing . Expect : 1,Test1,test1@gmail.com,+380673800171,Test1Test . Actual : 1,Test1,test1@gmail.com,+380673800171,Test1Test,testing
+id : 2 . Difference in text : ,testing . Expect : 2,Test2,test2@gmail.com,+380673800172,Test2Test . Actual : 2,Test2,test2@gmail.com,+380673800172,Test2Test,testing
+id : 3 . Difference in text : ,testing . Expect : 3,Test3,test3@gmail.com,+380673800173,Test3Test . Actual : 3,Test3,test3@gmail.com,+380673800173,Test3Test,testing
+id : 4 . Difference in text : ,testing . Expect : 4,Test4,test4@gmail.com,+380673800174,Test4Test . Actual : 4,Test4,test4@gmail.com,+380673800174,Test4Test,testing
+id : 5 . Difference in text : ,testing . Expect : 5,Test5,test5@gmail.com,+380673800175,Test5Test . Actual : 5,Test5,test5@gmail.com,+380673800175,Test5Test,testing
+id : 6 . Difference in text : ,testing . Expect : 6,Test6,test6@gmail.com,+380673800176,Test6Test . Actual : 6,Test6,test6@gmail.com,+380673800176,Test6Test,testing
+id : 7 . Difference in text : ,testing . Expect : 7,Test7,test7@gmail.com,+380673800177,Test7Test . Actual : 7,Test7,test7@gmail.com,+380673800177,Test7Test,testing
+id : 8 . Difference in text : ,testing . Expect : 8,Test8,test8@gmail.com,+380673800178,Test8Test . Actual : 8,Test8,test8@gmail.com,+380673800178,Test8Test,testing
+id : 9 . Difference in text : ,testing . Expect : 9,Test9,test9@gmail.com,+380673800179,Test9Test . Actual : 9,Test9,test9@gmail.com,+380673800179,Test9Test,testing
+Not all rows are equal
+Total rows in expected csv : 9
+Total rows in actual csv : 9
+Total unequal rows : 9
+
+==============================================
+
+==============================================
+
+Date: Thu May 06 01:16:40 EEST 2021 
+
+All rows are equal
+Total rows in expected csv : 9
+Total rows in actual csv : 9
+Total unequal rows : 0
+
+==============================================
+
+==============================================
+
+Date: Thu May 06 01:18:43 EEST 2021 
+
+id : 1 . Difference in text : ,testing . Expect : 1,Test1,test1@gmail.com,+380673800171,Test1Test . Actual : 1,Test1,test1@gmail.com,+380673800171,Test1Test,testing
+id : 2 . Difference in text : ,testing . Expect : 2,Test2,test2@gmail.com,+380673800172,Test2Test . Actual : 2,Test2,test2@gmail.com,+380673800172,Test2Test,testing
+id : 3 . Difference in text : ,testing . Expect : 3,Test3,test3@gmail.com,+380673800173,Test3Test . Actual : 3,Test3,test3@gmail.com,+380673800173,Test3Test,testing
+id : 4 . Difference in text : ,testing . Expect : 4,Test4,test4@gmail.com,+380673800174,Test4Test . Actual : 4,Test4,test4@gmail.com,+380673800174,Test4Test,testing
+id : 5 . Difference in text : ,testing . Expect : 5,Test5,test5@gmail.com,+380673800175,Test5Test . Actual : 5,Test5,test5@gmail.com,+380673800175,Test5Test,testing
+id : 6 . Difference in text : ,testing . Expect : 6,Test6,test6@gmail.com,+380673800176,Test6Test . Actual : 6,Test6,test6@gmail.com,+380673800176,Test6Test,testing
+id : 7 . Difference in text : ,testing . Expect : 7,Test7,test7@gmail.com,+380673800177,Test7Test . Actual : 7,Test7,test7@gmail.com,+380673800177,Test7Test,testing
+id : 8 . Difference in text : ,testing . Expect : 8,Test8,test8@gmail.com,+380673800178,Test8Test . Actual : 8,Test8,test8@gmail.com,+380673800178,Test8Test,testing
+id : 9 . Difference in text : ,testing . Expect : 9,Test9,test9@gmail.com,+380673800179,Test9Test . Actual : 9,Test9,test9@gmail.com,+380673800179,Test9Test,testing
+Not all rows are equal
+Total rows in expected csv : 9
+Total rows in actual csv : 9
+Total unequal rows : 9
+
+==============================================
